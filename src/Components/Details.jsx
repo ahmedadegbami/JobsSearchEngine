@@ -1,11 +1,12 @@
-import { Card, Button, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CompanySingleJob from "./CompanySingleJob";
+import { useNavigate } from "react-router-dom";
 
 const Details = () => {
   const params = useParams().company;
-  console.log("parms", params);
+  const navigate = useNavigate();
 
   const [companyJobs, setCompanyJobs] = useState([]);
 
@@ -34,6 +35,14 @@ const Details = () => {
           <CompanySingleJob key={job._id} job={job} />
         ))}
       </>
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+        className="btn btn-primary d-flex justify-content-center"
+      >
+        Back
+      </button>
     </Container>
   );
 };
