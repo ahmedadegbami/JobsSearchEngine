@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CompanySingleJob from "./CompanySingleJob";
@@ -29,20 +29,22 @@ const Details = () => {
 
   return (
     <Container className="mt-5">
-      <h3>All jobs @ {params}</h3>
-      <>
+      <div className="d-flex justify-content-center align-items-center flex-column text-center">
+        <h3>All jobs @ {params}</h3>
+
         {companyJobs.map((job) => (
           <CompanySingleJob key={job._id} job={job} />
         ))}
-      </>
-      <button
-        onClick={() => {
-          navigate("/");
-        }}
-        className="btn btn-primary d-flex justify-content-center"
-      >
-        Back
-      </button>
+
+        <button
+          onClick={() => {
+            navigate("/");
+          }}
+          className="btn btn-primary"
+        >
+          Back
+        </button>
+      </div>
     </Container>
   );
 };

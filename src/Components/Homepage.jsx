@@ -9,7 +9,7 @@ const Homepage = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [searchBy]);
 
   const fetchData = async () => {
     let url;
@@ -31,7 +31,6 @@ const Homepage = () => {
       if (response.ok) {
         const data = await response.json();
         setState(data.data);
-        console.log("gsgsgsg", data);
       }
     } catch (error) {
       console.log(error);
